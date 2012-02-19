@@ -1,6 +1,9 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
 <h1>Personal</h1>
 
-<table class="record_properties">
+<table class="table">
     <tbody>
         <tr>
             <th>Id</th>
@@ -19,19 +22,20 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('personal') }}">
+        <a href="{{ path('personal') }}" class="btn">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('personal_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('personal_edit', { 'id': entity.id }) }}" class="btn">
             Edit
         </a>
     </li>
     <li>
         <form action="{{ path('personal_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
         </form>
     </li>
 </ul>
+{% endblock %}

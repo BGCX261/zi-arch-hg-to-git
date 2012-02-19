@@ -1,6 +1,9 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
 <h1>Personal list</h1>
 
-<table class="records_list">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -18,10 +21,10 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('personal_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('personal_show', { 'id': entity.id }) }}" class="btn">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('personal_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('personal_edit', { 'id': entity.id }) }}" class="btn">edit</a>
                     </li>
                 </ul>
             </td>
@@ -32,8 +35,9 @@
 
 <ul>
     <li>
-        <a href="{{ path('personal_new') }}">
+        <a href="{{ path('personal_new') }}" class="btn">
             Create a new entry
         </a>
     </li>
 </ul>
+{% endblock %}
