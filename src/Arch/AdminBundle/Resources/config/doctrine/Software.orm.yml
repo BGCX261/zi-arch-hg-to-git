@@ -1,0 +1,58 @@
+Arch\AdminBundle\Entity\Software:
+  type: entity
+  table: software
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+    licenseId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: license_id
+    softwareTypeId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: software_type_id
+    name:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+    year:
+      type: integer
+      unsigned: false
+      nullable: false
+  manyToMany:
+    computer:
+      targetEntity: Device
+      cascade: {  }
+      mappedBy: software
+      inversedBy: null
+      joinTable: null
+      orderBy: null
+  oneToOne:
+    license:
+      targetEntity: License
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        license_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    softwareType:
+      targetEntity: SoftwareType
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        software_type_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

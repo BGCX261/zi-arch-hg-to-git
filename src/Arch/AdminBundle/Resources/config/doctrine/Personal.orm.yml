@@ -1,0 +1,49 @@
+Arch\AdminBundle\Entity\Personal:
+  type: entity
+  table: personal
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+    departmentId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: department_id
+    positionId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: position_id
+    pib:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+    birthday:
+      type: datetime
+      nullable: false
+  oneToOne:
+    department:
+      targetEntity: Department
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        department_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    position:
+      targetEntity: Position
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        position_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

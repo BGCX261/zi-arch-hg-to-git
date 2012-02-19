@@ -1,0 +1,78 @@
+Arch\AdminBundle\Entity\Device:
+  type: entity
+  table: device
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+    personalId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: personal_id
+    inv:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    room:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    producer:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+    year:
+      type: integer
+      unsigned: false
+      nullable: false
+  manyToMany:
+    hardware:
+      targetEntity: Hardware
+      cascade: {  }
+      mappedBy: null
+      inversedBy: computer
+      joinTable:
+        name: computer_has_hardware
+        joinColumns:
+          -
+            name: computer_id
+            referencedColumnName: id
+        inverseJoinColumns:
+          -
+            name: hardware_id
+            referencedColumnName: id
+      orderBy: null
+    software:
+      targetEntity: Software
+      cascade: {  }
+      mappedBy: null
+      inversedBy: computer
+      joinTable:
+        name: computer_has_software
+        joinColumns:
+          -
+            name: computer_id
+            referencedColumnName: id
+        inverseJoinColumns:
+          -
+            name: software_id
+            referencedColumnName: id
+      orderBy: null
+  oneToOne:
+    personal:
+      targetEntity: Personal
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        personal_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

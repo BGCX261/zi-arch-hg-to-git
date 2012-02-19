@@ -1,0 +1,39 @@
+Arch\AdminBundle\Entity\Hardware:
+  type: entity
+  table: hardware
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+    hardwareTypeId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: hardware_type_id
+    name:
+      type: string
+      length: 45
+      fixed: false
+      nullable: false
+  manyToMany:
+    computer:
+      targetEntity: Device
+      cascade: {  }
+      mappedBy: hardware
+      inversedBy: null
+      joinTable: null
+      orderBy: null
+  oneToOne:
+    hardwareType:
+      targetEntity: HardwareType
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        hardware_type_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }
