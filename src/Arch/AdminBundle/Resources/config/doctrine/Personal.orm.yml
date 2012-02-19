@@ -7,25 +7,15 @@ Arch\AdminBundle\Entity\Personal:
       type: integer
       unsigned: false
       nullable: false
-    departmentId:
-      id: true
-      type: integer
-      unsigned: false
-      nullable: false
-      column: department_id
-    positionId:
-      id: true
-      type: integer
-      unsigned: false
-      nullable: false
-      column: position_id
+      generator:
+        strategy: IDENTITY
     pib:
       type: string
       length: 255
       fixed: false
       nullable: false
     birthday:
-      type: datetime
+      type: date
       nullable: false
   oneToOne:
     department:

@@ -5,9 +5,9 @@ namespace Arch\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Arch\AdminBundle\Entity\Position
+ * Arch\AdminBundle\Entity\HardwareType
  */
-class Position
+class HardwareType
 {
     /**
      * @var integer $id
@@ -48,10 +48,5 @@ class Position
     public function getName()
     {
         return $this->name;
-    }
-
-    public function __toString()
-    {
-        return $this->getName();
     }
 }
