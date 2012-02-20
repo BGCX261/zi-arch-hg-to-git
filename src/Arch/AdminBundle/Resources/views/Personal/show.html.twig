@@ -17,6 +17,23 @@
             <th>Birthday</th>
             <td>{{ entity.birthday|date('Y-m-d H:i:s') }}</td>
         </tr>
+        <tr>
+            <th>Devices</th>
+            <td>
+                <ul>
+                    {% for device in devices %}
+                    <a href="{{ path('device_show', { 'id' : device.id }) }}">{{ device.name }}</a>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    <tr>
+        <th>Department</th>
+        <td><a href="{{ path('department_show', {'id' : entity.department.id}) }}">
+            {{ entity.department.name }}
+        </a>
+        </td>
+    </tr>
     </tbody>
 </table>
 

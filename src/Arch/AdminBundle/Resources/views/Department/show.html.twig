@@ -13,6 +13,18 @@
             <th>Name</th>
             <td>{{ entity.name }}</td>
         </tr>
+    <tr>
+        <th>Personal</th>
+        <td>
+            <table class="table">
+            {% for person in personal %}
+                <tr>
+                    <td><a href="{{ path('personal_show', {'id' : person.id }) }}">{{ person.pib }}</a></td>
+                </tr>
+            {% endfor %}
+            </table>
+        </td>
+    </tr>
     </tbody>
 </table>
 

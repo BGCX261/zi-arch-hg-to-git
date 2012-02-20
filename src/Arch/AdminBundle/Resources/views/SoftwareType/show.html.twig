@@ -12,6 +12,16 @@
             <th>Name</th>
             <td>{{ entity.name }}</td>
         </tr>
+    <tr>
+        <th>Software</th>
+        <td>
+            <ul>
+            {% for prog in software %}
+                <li><a href="{{ path('software_show', {'id' : prog.id}) }}">{{ prog.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </td>
+    </tr>
     </tbody>
 </table>
 

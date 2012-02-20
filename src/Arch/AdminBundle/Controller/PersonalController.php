@@ -47,10 +47,13 @@ class PersonalController extends Controller
             throw $this->createNotFoundException('Unable to find Personal entity.');
         }
 
+        $devices = $em->getRepository('ArchAdminBundle:Device')->findByPersonal($entity->getId());
+
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
+            'devices'       => $devices,
             'delete_form' => $deleteForm->createView(),        );
     }
 

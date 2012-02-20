@@ -47,10 +47,13 @@ class SoftwareTypeController extends Controller
             throw $this->createNotFoundException('Unable to find SoftwareType entity.');
         }
 
+        $software = $em->getRepository('ArchAdminBundle:Software')->findBySoftwareType($entity->getId());
+
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
+            'software'      => $software,
             'delete_form' => $deleteForm->createView(),        );
     }
 

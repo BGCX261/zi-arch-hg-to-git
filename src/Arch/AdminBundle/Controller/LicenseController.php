@@ -46,11 +46,12 @@ class LicenseController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find License entity.');
         }
-
+        $software = $em->getRepository('ArchAdminBundle:Software')->findByLicense($entity->getId());
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
+            'software'    => $software,
             'delete_form' => $deleteForm->createView(),        );
     }
 

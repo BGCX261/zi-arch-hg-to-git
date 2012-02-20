@@ -14,7 +14,7 @@ class PersonalType extends AbstractType
         $builder
             ->add('pib')
             ->add('birthday', null, array('years' => range(1930, $year)))
-            ->add('department')
+            ->add('department', null, array('attr' => array('class' => 'chzn')))
             ->add('position')
         ;
     }

@@ -47,10 +47,13 @@ class DepartmentController extends Controller
             throw $this->createNotFoundException('Unable to find Department entity.');
         }
 
+        $personal = $em->getRepository('ArchAdminBundle:Personal')->findByDepartment($entity->getId());
+
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
+            'personal'    => $personal,
             'delete_form' => $deleteForm->createView(),        );
     }
 

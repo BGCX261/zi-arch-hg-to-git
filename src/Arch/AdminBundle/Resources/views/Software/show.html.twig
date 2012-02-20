@@ -16,6 +16,14 @@
             <th>Year</th>
             <td>{{ entity.year }}</td>
         </tr>
+    <tr>
+        <th>License</th>
+        <td><a href="{{ path('license_show', {'id' : entity.license.id }) }}">{{ entity.license.name }}</a></td>
+    </tr>
+    <tr>
+        <th>Type</th>
+        <td><a href="{{ path('softwaretype_show', {'id' : entity.softwareType.id}) }}">{{ entity.softwareType.name }}</a></td>
+    </tr>
     </tbody>
 </table>
 
