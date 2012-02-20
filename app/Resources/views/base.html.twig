@@ -26,12 +26,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Project name</a>
+            <a class="brand" href="#">Architecture institute</a>
 
             <div class="nav-collapse">
                 <ul class="nav">
                     <li class="{% if controller == 'Department' %} active {% endif %}">
-                        <a href="{{ path('department') }}">Department</a>
+                        <a href="{{ path('department') }}">Departments</a>
                     </li>
                     <li class="{% if controller == 'Personal' %} active {% endif %}">
                         <a href="{{ path('personal') }}">Personal</a>
@@ -39,6 +39,25 @@
                     <li class="{% if controller == 'Position'%} active {% endif %}">
                         <a href="{{ path('position') }}">Position</a>
                     </li>
+                    <li class="{% if controller == 'HardwareType'%} active {% endif %}">
+                        <a href="{{ path('hardwaretype') }}">Hardware type</a>
+                    </li>
+                    <li class="{% if controller == 'Hardware'%} active {% endif %}">
+                        <a href="{{ path('hardware') }}">Hardware</a>
+                    </li>
+                    <li class="{% if controller == 'License'%} active {% endif %}">
+                        <a href="{{ path('license') }}">License</a>
+                    </li>
+                    <li class="{% if controller == 'Software'%} active {% endif %}">
+                        <a href="{{ path('software') }}">Software</a>
+                    </li>
+                    <li class="{% if controller == 'SoftwareType'%} active {% endif %}">
+                        <a href="{{ path('softwaretype') }}">Software type</a>
+                    </li>
+                    <li class="{% if controller == 'Device'%} active {% endif %}">
+                        <a href="{{ path('device') }}">Device</a>
+                    </li>
+
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -54,6 +73,7 @@
 <!-- /container -->
 
 {% block javascripts %}
+<script type="text/javascript" src="{{ asset('js/jquery-1.7.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/bootstrap.min.js')}}"></script>
 {% endblock %}
 </body>

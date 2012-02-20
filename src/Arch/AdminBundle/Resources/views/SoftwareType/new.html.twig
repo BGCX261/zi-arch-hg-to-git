@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<h1>SoftwareType creation</h1>
+
+<form action="{{ path('softwaretype_create') }}" method="post" {{ form_enctype(form) }} class="well">
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('softwaretype') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
