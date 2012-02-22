@@ -184,4 +184,9 @@ class Personal
     {
         return $this->position;
     }
+
+    public function __toString()
+    {
+        return $this->getPib();
+    }
 }

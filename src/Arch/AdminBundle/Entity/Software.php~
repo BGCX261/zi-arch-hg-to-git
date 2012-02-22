@@ -213,4 +213,9 @@ class Software
     {
         return $this->computer;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

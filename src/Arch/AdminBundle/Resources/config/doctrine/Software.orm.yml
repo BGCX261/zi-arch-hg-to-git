@@ -1,6 +1,7 @@
 Arch\AdminBundle\Entity\Software:
   type: entity
   table: software
+  repositoryClass: Arch\AdminBundle\Repository\SoftwareRepository
   fields:
     id:
       id: true
