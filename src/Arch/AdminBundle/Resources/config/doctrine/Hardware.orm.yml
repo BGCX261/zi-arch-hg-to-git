@@ -1,6 +1,7 @@
 Arch\AdminBundle\Entity\Hardware:
   type: entity
   table: hardware
+  repositoryClass: Arch\AdminBundle\Repository\HardwareRepository
   fields:
     id:
       id: true

@@ -47,11 +47,15 @@ class PositionController extends Controller
             throw $this->createNotFoundException('Unable to find Position entity.');
         }
 
+        $personal = $em->getRepository('ArchAdminBundle:Personal')->findByPosition($entity->getId());
+
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'delete_form' => $deleteForm->createView(),
+            'personal'    => $personal,
+        );
     }
 
     /**

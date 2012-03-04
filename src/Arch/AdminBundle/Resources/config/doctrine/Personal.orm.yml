@@ -1,6 +1,7 @@
 Arch\AdminBundle\Entity\Personal:
   type: entity
   table: personal
+  repositoryClass: Arch\AdminBundle\Repository\PersonalRepository
   fields:
     id:
       id: true

@@ -14,13 +14,27 @@ class SoftwareRepository extends EntityRepository
 {
     public function findAll()
     {
+        $qb = $this->_createQueryBuilder();
+        $res = $qb->getQuery()->getResult();
+
+        return $res;
+    }
+
+    protected function _createQueryBuilder()
+    {
         $qb = $this->_em->createQueryBuilder()
             ->select('s, t, l')
             ->from('ArchAdminBundle:Software', 's')
             ->join('s.softwareType', 't')
             ->join('s.license', 'l');
-        $res = $qb->getQuery()->getResult();
+        return $qb;
+    }
 
-        return $res;
+    public function find($id)
+    {
+        $qb = $this->_createQueryBuilder()
+            ->andWhere('s.id = :id')->setParameter('id', $id);
+        $res = $qb->getQuery()->getResult();
+        return count($res) ? $res[0] : false;
     }
 }

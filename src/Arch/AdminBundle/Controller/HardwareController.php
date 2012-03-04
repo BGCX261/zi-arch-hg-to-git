@@ -47,11 +47,15 @@ class HardwareController extends Controller
             throw $this->createNotFoundException('Unable to find Hardware entity.');
         }
 
+        $devices = $em->getRepository('ArchAdminBundle:Device')->findByHardware($entity->getId());
+
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'delete_form' => $deleteForm->createView(),
+            'devices'     => $devices,
+        );
     }
 
     /**

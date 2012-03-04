@@ -1,6 +1,7 @@
 Arch\AdminBundle\Entity\Device:
   type: entity
   table: device
+  repositoryClass: Arch\AdminBundle\Repository\DeviceRepository
   fields:
     id:
       id: true

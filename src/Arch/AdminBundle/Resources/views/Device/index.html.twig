@@ -8,6 +8,7 @@
             <th>Id</th>
             <th>Inv</th>
             <th>Room</th>
+            <th>Person</th>
             <th>Producer</th>
             <th>Year</th>
             <th>Actions</th>
@@ -19,6 +20,7 @@
             <td><a href="{{ path('device_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.inv }}</td>
             <td>{{ entity.room }}</td>
+            <td><a href="{{ path('personal_show', {'id' : entity.personal.id}) }}">{{ entity.personal.pib }}</a></td>
             <td>{{ entity.producer }}</td>
             <td>{{ entity.year }}</td>
             <td>

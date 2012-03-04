@@ -12,6 +12,16 @@
             <th>Name</th>
             <td>{{ entity.name }}</td>
         </tr>
+    <tr>
+        <th>Devices</th>
+        <td>
+            <ul>
+                {% for device in devices %}
+                <li><a href="{{ path('device_show', {'id' : device.id}) }}">{{ device.inv }}[{{ device.room }}]</a></li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
     </tbody>
 </table>
 

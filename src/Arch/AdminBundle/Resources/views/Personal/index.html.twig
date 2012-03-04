@@ -9,6 +9,8 @@
             <th>Id</th>
             <th>Pib</th>
             <th>Birthday</th>
+            <th>Position</th>
+            <th>Department</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -18,13 +20,15 @@
             <td><a href="{{ path('personal_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.pib }}</td>
             <td>{% if entity.birthday %}{{ entity.birthday|date('Y-m-d') }}{% endif%}</td>
+            <td><a href="{{ path('position_show', {'id' : entity.position.id}) }}">{{ entity.position.name }}</a> </td>
+            <td><a href="{{ path('department_show', {'id' : entity.department.id}) }}">{{ entity.department.name }}</a> </td>
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('personal_show', { 'id': entity.id }) }}" class="btn">show</a>
+                        <a href="{{ path('personal_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('personal_edit', { 'id': entity.id }) }}" class="btn">edit</a>
+                        <a href="{{ path('personal_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
             </td>
@@ -35,7 +39,7 @@
 
 <ul>
     <li>
-        <a href="{{ path('personal_new') }}" class="btn">
+        <a href="{{ path('personal_new') }}">
             Create a new entry
         </a>
     </li>

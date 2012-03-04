@@ -4,26 +4,51 @@
 
 <table class="record_properties">
     <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Inv</th>
-            <td>{{ entity.inv }}</td>
-        </tr>
-        <tr>
-            <th>Room</th>
-            <td>{{ entity.room }}</td>
-        </tr>
-        <tr>
-            <th>Producer</th>
-            <td>{{ entity.producer }}</td>
-        </tr>
-        <tr>
-            <th>Year</th>
-            <td>{{ entity.year }}</td>
-        </tr>
+    <tr>
+        <th>Id</th>
+        <td>{{ entity.id }}</td>
+    </tr>
+    <tr>
+        <th>Inv</th>
+        <td>{{ entity.inv }}</td>
+    </tr>
+    <tr>
+        <th>Room</th>
+        <td>{{ entity.room }}</td>
+    </tr>
+    <tr>
+        <th>Producer</th>
+        <td>{{ entity.producer }}</td>
+    </tr>
+    <tr>
+        <th>Personal</th>
+        <td><a href="{{ path('personal_show', {'id' : entity.personal.id}) }}">{{ entity.personal.pib }}</a></td>
+    </tr>
+    <tr>
+        <th>Year</th>
+        <td>{{ entity.year }}</td>
+    </tr>
+    <tr>
+        <th>Software</th>
+        <td>
+            <ul>
+                {% for software in entity.software %}
+                <li><a href="{{ path('software_show', {'id' : software.id}) }}">{{ software.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Hardware</th>
+        <td>
+            <ul>
+                {% for hardware in entity.hardware %}
+                <li><a href="{{ path('hardware_show', {'id' : hardware.id}) }}">{{ hardware.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+
     </tbody>
 </table>
 

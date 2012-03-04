@@ -1,3 +1,2 @@
 $().ready(function() {
-    $(".chzn").chosen()
 });

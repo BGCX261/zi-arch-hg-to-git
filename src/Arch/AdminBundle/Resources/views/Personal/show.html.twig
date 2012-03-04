@@ -15,14 +15,14 @@
         </tr>
         <tr>
             <th>Birthday</th>
-            <td>{{ entity.birthday|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.birthday|date('Y-m-d') }}</td>
         </tr>
         <tr>
             <th>Devices</th>
             <td>
                 <ul>
                     {% for device in devices %}
-                    <a href="{{ path('device_show', { 'id' : device.id }) }}">{{ device.name }}</a>
+                    <li><a href="{{ path('device_show', { 'id' : device.id }) }}">{{ device.inv }}</a></li>
                     {% endfor %}
                 </ul>
             </td>
@@ -39,19 +39,19 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('personal') }}" class="btn">
+        <a href="{{ path('personal') }}" >
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('personal_edit', { 'id': entity.id }) }}" class="btn">
+        <a href="{{ path('personal_edit', { 'id': entity.id }) }}" >
             Edit
         </a>
     </li>
     <li>
         <form action="{{ path('personal_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" >Delete</button>
         </form>
     </li>
 </ul>
