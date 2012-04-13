@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Arch\AdminBundle\Entity\Personal;
 use Arch\AdminBundle\Form\PersonalType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Personal controller.
@@ -62,6 +63,7 @@ class PersonalController extends Controller
      *
      * @Route("/new", name="personal_new")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -80,6 +82,7 @@ class PersonalController extends Controller
      * @Route("/create", name="personal_create")
      * @Method("post")
      * @Template("ArchAdminBundle:Personal:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -108,6 +111,7 @@ class PersonalController extends Controller
      *
      * @Route("/{id}/edit", name="personal_edit")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -135,6 +139,7 @@ class PersonalController extends Controller
      * @Route("/{id}/update", name="personal_update")
      * @Method("post")
      * @Template("ArchAdminBundle:Personal:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction($id)
     {
@@ -172,6 +177,7 @@ class PersonalController extends Controller
      *
      * @Route("/{id}/delete", name="personal_delete")
      * @Method("post")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction($id)
     {

@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Arch\AdminBundle\Entity\HardwareType;
 use Arch\AdminBundle\Form\HardwareTypeType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * HardwareType controller.
@@ -36,6 +37,7 @@ class HardwareTypeController extends Controller
      *
      * @Route("/{id}/show", name="hardwaretype_show")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function showAction($id)
     {
@@ -59,6 +61,7 @@ class HardwareTypeController extends Controller
      *
      * @Route("/new", name="hardwaretype_new")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -77,6 +80,7 @@ class HardwareTypeController extends Controller
      * @Route("/create", name="hardwaretype_create")
      * @Method("post")
      * @Template("ArchAdminBundle:HardwareType:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -105,6 +109,7 @@ class HardwareTypeController extends Controller
      *
      * @Route("/{id}/edit", name="hardwaretype_edit")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -132,6 +137,7 @@ class HardwareTypeController extends Controller
      * @Route("/{id}/update", name="hardwaretype_update")
      * @Method("post")
      * @Template("ArchAdminBundle:HardwareType:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction($id)
     {
@@ -169,6 +175,7 @@ class HardwareTypeController extends Controller
      *
      * @Route("/{id}/delete", name="hardwaretype_delete")
      * @Method("post")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction($id)
     {

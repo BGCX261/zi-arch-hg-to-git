@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Arch\AdminBundle\Entity\Position;
 use Arch\AdminBundle\Form\PositionType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Position controller.
@@ -63,6 +64,7 @@ class PositionController extends Controller
      *
      * @Route("/new", name="position_new")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -81,6 +83,7 @@ class PositionController extends Controller
      * @Route("/create", name="position_create")
      * @Method("post")
      * @Template("ArchAdminBundle:Position:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -109,6 +112,7 @@ class PositionController extends Controller
      *
      * @Route("/{id}/edit", name="position_edit")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -136,6 +140,7 @@ class PositionController extends Controller
      * @Route("/{id}/update", name="position_update")
      * @Method("post")
      * @Template("ArchAdminBundle:Position:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction($id)
     {
@@ -173,6 +178,7 @@ class PositionController extends Controller
      *
      * @Route("/{id}/delete", name="position_delete")
      * @Method("post")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction($id)
     {

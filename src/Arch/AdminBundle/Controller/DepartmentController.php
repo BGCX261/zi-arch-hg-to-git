@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Arch\AdminBundle\Entity\Department;
 use Arch\AdminBundle\Form\DepartmentType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Department controller.
@@ -62,6 +63,7 @@ class DepartmentController extends Controller
      *
      * @Route("/new", name="department_new")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -80,6 +82,7 @@ class DepartmentController extends Controller
      * @Route("/create", name="department_create")
      * @Method("post")
      * @Template("ArchAdminBundle:Department:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -108,6 +111,7 @@ class DepartmentController extends Controller
      *
      * @Route("/{id}/edit", name="department_edit")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -135,6 +139,7 @@ class DepartmentController extends Controller
      * @Route("/{id}/update", name="department_update")
      * @Method("post")
      * @Template("ArchAdminBundle:Department:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction($id)
     {
@@ -172,6 +177,7 @@ class DepartmentController extends Controller
      *
      * @Route("/{id}/delete", name="department_delete")
      * @Method("post")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction($id)
     {

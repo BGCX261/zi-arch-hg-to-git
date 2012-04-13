@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Arch\AdminBundle\Entity\Device;
 use Arch\AdminBundle\Form\DeviceType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Device controller.
@@ -59,6 +60,7 @@ class DeviceController extends Controller
      *
      * @Route("/new", name="device_new")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -77,6 +79,7 @@ class DeviceController extends Controller
      * @Route("/create", name="device_create")
      * @Method("post")
      * @Template("ArchAdminBundle:Device:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -105,6 +108,7 @@ class DeviceController extends Controller
      *
      * @Route("/{id}/edit", name="device_edit")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -132,6 +136,7 @@ class DeviceController extends Controller
      * @Route("/{id}/update", name="device_update")
      * @Method("post")
      * @Template("ArchAdminBundle:Device:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction($id)
     {
@@ -169,6 +174,7 @@ class DeviceController extends Controller
      *
      * @Route("/{id}/delete", name="device_delete")
      * @Method("post")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction($id)
     {

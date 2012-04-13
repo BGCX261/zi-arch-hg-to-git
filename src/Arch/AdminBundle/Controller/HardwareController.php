@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Arch\AdminBundle\Entity\Hardware;
 use Arch\AdminBundle\Form\HardwareType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Hardware controller.
@@ -63,6 +64,7 @@ class HardwareController extends Controller
      *
      * @Route("/new", name="hardware_new")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -81,6 +83,7 @@ class HardwareController extends Controller
      * @Route("/create", name="hardware_create")
      * @Method("post")
      * @Template("ArchAdminBundle:Hardware:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -109,6 +112,7 @@ class HardwareController extends Controller
      *
      * @Route("/{id}/edit", name="hardware_edit")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -136,6 +140,7 @@ class HardwareController extends Controller
      * @Route("/{id}/update", name="hardware_update")
      * @Method("post")
      * @Template("ArchAdminBundle:Hardware:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction($id)
     {
@@ -173,6 +178,7 @@ class HardwareController extends Controller
      *
      * @Route("/{id}/delete", name="hardware_delete")
      * @Method("post")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction($id)
     {

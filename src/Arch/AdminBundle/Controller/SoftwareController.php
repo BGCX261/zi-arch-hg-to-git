@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Arch\AdminBundle\Entity\Software;
 use Arch\AdminBundle\Form\SoftwareType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Software controller.
@@ -63,6 +64,7 @@ class SoftwareController extends Controller
      *
      * @Route("/new", name="software_new")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -81,6 +83,7 @@ class SoftwareController extends Controller
      * @Route("/create", name="software_create")
      * @Method("post")
      * @Template("ArchAdminBundle:Software:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction()
     {
@@ -109,6 +112,7 @@ class SoftwareController extends Controller
      *
      * @Route("/{id}/edit", name="software_edit")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -136,6 +140,7 @@ class SoftwareController extends Controller
      * @Route("/{id}/update", name="software_update")
      * @Method("post")
      * @Template("ArchAdminBundle:Software:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction($id)
     {
@@ -173,6 +178,7 @@ class SoftwareController extends Controller
      *
      * @Route("/{id}/delete", name="software_delete")
      * @Method("post")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction($id)
     {
