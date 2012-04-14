@@ -12,3 +12,11 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+doctrine:
+    dbal:
+        host:     localhost
+        port:     3306
+        dbname:   arch.test
+        user:     root
+        password: gtnhjdbx

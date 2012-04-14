@@ -1,0 +1,9 @@
+services:
+    request:
+      class: Symfony\Component\HttpFoundation\Request
+
+    arch.twig.extension:
+        class: Arch\AdminBundle\Twig\Extension\PageExtension
+        arguments: [@request]
+        tags:
+            - { name: 'twig.extension' }

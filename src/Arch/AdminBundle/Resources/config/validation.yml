@@ -1,0 +1,4 @@
+Arch\AdminBundle\Entity\Department:
+    properties:
+        name:
+            - NotBlank: { message: "Department name should not be blank." }

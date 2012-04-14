@@ -7,6 +7,7 @@
 namespace Arch\AdminBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\DomCrawler\Form;
 
 abstract class AbstractCrudAuthTestCase extends WebTestCase
 {
@@ -31,6 +32,10 @@ abstract class AbstractCrudAuthTestCase extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', "{$this->_url}/new");
         $this->assertEquals(401, $client->getResponse()->getStatusCode());
+
+        $client = static::createAuthedClient();
+        $crawler = $client->request('GET', "{$this->_url}/new");
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
     public function testCreateAction()
@@ -59,5 +64,17 @@ abstract class AbstractCrudAuthTestCase extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('POST', "{$this->_url}/1/delete");
         $this->assertEquals(401, $client->getResponse()->getStatusCode());
+    }
+
+    /**
+     * @static
+     * @return \Symfony\Bundle\FrameworkBundle\Client
+     */
+    static public function createAuthedClient()
+    {
+        return static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'b17',
+            'PHP_AUTH_PW'   => 'b17',
+        ));
     }
 }
